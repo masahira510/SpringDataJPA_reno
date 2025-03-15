@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+
+    <body>
+		<!-- ヘッダー再利用 -->
+        <header th:replace="productHeaderJS :: productHeaderJS"></header>
+        <main>
+			<div>
+				<h2>製品登録</h2>
+				<!-- フォームフィールドのプロパティはJavaオブジェクトから取得 -->
+	            <form id="productForm" th:action="@{/user/productCreateJS}" th:object="${productEntityJS}" method="post">
+	                <div>
+	                    <div>
+	                        <label for="name">製品名</label>
+	                    </div>
+	                    <div>
+	                        <input type="text" th:field="*{name}">
+							<div id="nameError" style="color: #ff0000;"></div>
+	                    </div>
+	                </div>
+	
+	                <div>
+	                    <div>
+	                        <label for="price">価格</label>
+	                    </div>
+	                    <div>
+	                        <input type="number" th:field="*{price}">
+							<div id="priceError" style="color: #ff0000;"></div>
+	                    </div>
+	                </div>
+					
+					<div>
+						<div>
+							<button type="submit">登録</button>
+						</div>
+					</div>
+	            </form>
+			<div>
+        </main>
+		<!-- フッター再利用 -->
+        <footer th:replace="footer :: footer"></footer>
+		<script>
+			document.getElementById("productForm").addEventListener("submit", function(e) {
+				// 初期化
+				let hasError = false;
+				
+				// 各フォーム入力値を取得
+				const name = document.getElementById("name").value.trim();
+				const price = parseInt(document.getElementById("price").value, 10);
+				
+				// 製品名チェック
+				if (name === "") {
+					document.getElementById("nameError").textContent = "製品名は必須です。";
+					hasError = true;
+				} else {
+					document.getElementById("nameError").textContent = "";
+				}
+				
+				// 価格チェック
+				if (isNaN(price) || price <= 0) {
+					document.getElementById("priceError").textContent = "価格は1以上を入力してください";
+					hasError = true;
+				} else {
+					document.getElementById("priceError").textContent = "";
+				}
+				
+				if (hasError) {
+					e.preventDefault(); // 送信中止
+				}
+			});
+		</script>
+    </body>
+</html>
+

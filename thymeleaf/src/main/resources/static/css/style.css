@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+/* styles.css */
+body {
+    background-color: #ffffff;
+	margin: 0;
+}
+
+h1 {
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+	margin: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+table,th,td {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
+
+th,td {
+	padding: 6px;
+	width: 100px;
+}
+
+th {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+/* ヘッダー */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0;
+	box-shadow: 0px 4px 4px #F0F0F0;
+}
+
+header h1 {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 10px 30px;
+	margin-left: 20px;
+}
+
+header nav {
+	display: flex;
+	align-items: center;
+}
+
+header nav ul {
+	display: flex;
+	margin: 0;
+}
+
+header nav ul li {
+	margin-right: 40px;
+}
+
+/* フォーム */
+
+main > div {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px 0 80px;
+}
+
+main > div > h2 {
+	text-align: center;
+	font-size: 30px;
+    margin-bottom: 70px;
+}
+
+main > div > form > div {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+main > div > form > div:nth-of-type(3) { /* 登録ボタン center */
+	justify-content: center;
+}
+
+main > div > form > div:nth-of-type(-n+2) > div:first-of-type {
+    width:  170px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+main > div > form > div:nth-of-type(-n+2) > div:last-of-type {
+    width: 100%;
+}
+
+input[type="text"],input[type="email"],input[type="tel"],input[type="number"] {
+    width: 100%;
+    background-color: #F0F0F0;
+    border: none;
+    padding: 10px;
+}
+
+button[type="submit"] {
+	border: none;
+	font-size: 15px;
+	width: 100px;
+	height: 40px;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+button[type="submit"]:hover {
+	background-color: #696969;
+	cursor: pointer;
+	transition: background-color 300ms linear;
+}
+
+/* フッター */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    height: 40px;
+    color: #ffffff;
+}
+
+/* result.html */
+
+#result div,#List div,#error div {
+	text-align:center;
+	padding: 100px 0;
+}
+
+#result h2, #List h2,#error h2 {
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+table {
+	margin: 0 auto;
+}
+
+tbody tr:nth-of-type(odd) { /* 奇数のtr */
+	background-color: #ffffff;
+}
+
+tbody tr:nth-of-type(even) { /* 偶数のtr */
+	background-color: #d9d9d9;
+}
+
+/* errorPage.html */
+
+.red {
+	color: #ff0000;
+	padding: 0;
+}

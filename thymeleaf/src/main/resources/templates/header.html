@@ -1,0 +1,11 @@
+<header th:fragment="header">
+    <h1>DEMO</h1>
+    <nav>
+        <ul>
+			<!-- コントローラーからリンクを渡す -->
+            <li><a th:href="${top}">TOP</a></li>
+            <li><a th:href="${about}">ABOUT</a></li>
+            <li><a th:href="${contact}">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>

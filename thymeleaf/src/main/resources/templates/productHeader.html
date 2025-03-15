@@ -1,0 +1,12 @@
+<header th:fragment="productHeader">
+    <h1>A:DEMO</h1>
+    <nav>
+        <ul>
+			<!-- コントローラーからリンクを渡す -->
+			<li><a th:href="@{/user/formErrorReturn}">B</a></li>
+			<li><a th:href="@{/user/formJS}">C</a></li>
+			<li><a th:href="@{/user/form}">製品登録</a></li>
+            <li><a th:href="@{/user/getCreate}">製品一覧データ</a></li>
+        </ul>
+    </nav>
+</header>

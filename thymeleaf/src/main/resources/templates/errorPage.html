@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+
+    <body>
+		<main id="error">
+			<div>
+				<h2 class="e_title">入力エラー</h2>
+				<ul>
+					<li th:each="err : ${errors}" th:text="${err.defaultMessage}" class="red"></li>
+				</ul>
+				<a th:href="@{/user/form}">製品登録画面に戻る</a>
+			</div>
+        </main>
+		<!-- フッター再利用 -->
+        <footer th:replace="footer :: footer"></footer>
+    </body>
+</html>
+

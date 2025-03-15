@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+
+    <body>
+		<!-- ヘッダー再利用 -->
+        <header th:replace="productHeaderJS :: productHeaderJS"></header>
+        <main id="List">
+			<div>
+				<h2>製品一覧データ</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>品番</th>
+							<th>製品名</th>
+							<th>価格</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="productJS : ${productsJS}">
+							<td th:text="${productJS.id}"></td>
+							<td th:text="${productJS.name}"></td>
+							<td th:text="${productJS.price}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+        </main>
+		<!-- フッター再利用 -->
+        <footer th:replace="footer :: footer"></footer>
+    </body>
+</html>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+
+    <body>
+		<!-- ヘッダー再利用 -->
+        <header th:replace="header :: header"></header>
+        <main>
+			<div>
+				<!-- フォームフィールドのプロパティはJavaオブジェクトから取得 -->
+	            <form th:object="${user}" action="" method="post">
+	                <div>
+	                    <div>
+	                        <label for="name">氏名</label>
+	                    </div>
+	                    <div>
+	                        <input type="text" th:field="*{name}">
+	                    </div>
+	                </div>
+	
+	                <div>
+	                    <div>
+	                        <label for="email">メールアドレス</label>
+	                    </div>
+	                    <div>
+	                        <input type="email" th:field="*{email}">
+	                    </div>
+	                </div>
+	
+	                <div>
+	                    <div>
+	                        <label for="phone">電話番号</label>
+	                    </div>
+	                    <div>
+	                        <input type="tel" th:field="*{phone}">
+	                    </div>
+	                </div>
+	
+	                <div>
+	                    <div>
+							<span>お問い合わせ内容</span>
+						</div>
+	                	<div>
+							<!-- お問い合わせ内容はループ処理 -->
+							<label th:each="radioButton, iterStat : ${radioButtons}">
+								<input type="radio" name="radioButton" th:value="${radioButton}" th:checked="${iterStat.index == 0}" />
+								<span th:text="${radioButton}"></span>
+							</label>
+						</div>
+					</div>
+	            </form>
+			<div>
+        </main>
+		<!-- フッター再利用 -->
+        <footer th:replace="footer :: footer"></footer>
+    </body>
+</html>
+
