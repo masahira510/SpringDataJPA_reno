@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -23,6 +24,7 @@ public class ProductEntity {
 	@NotBlank(message = "製品名は必須です")
 	private String name;
 	
+	@NotNull(message = "価格は1以上を入力してください")
 	@Min(value = 1, message = "価格は1以上を入力してください")
-	private int price;	
+	private Integer price;	
 }

@@ -24,7 +24,9 @@ public class ProductController {
 	// フォームの入力画面を表示
 	@GetMapping("/user/form")
 	public String showForm(Model model) {
-		model.addAttribute("productEntity", new ProductEntity());
+		ProductEntity productEntity = new ProductEntity();
+		productEntity.setPrice(0);
+		model.addAttribute("productEntity", productEntity);
 		return "productForm";
 	}
 	
@@ -45,7 +47,9 @@ public class ProductController {
 	// フォームの入力画面を表示(入力エラーがあれば、エラーページに遷移せずにフォーム入力画面に戻る)
 	@GetMapping("/user/formErrorReturn")
 	 public String shorFormError(Model model) {
-		model.addAttribute("productEntity", new ProductEntity());
+		ProductEntity productEntity = new ProductEntity();
+		productEntity.setPrice(0);
+		model.addAttribute("productEntity", productEntity);
 		return "productFormError";
 	}
 	
